@@ -8,8 +8,20 @@ const { categories, authors, articles, global, about } = require('../data/data.j
 async function seedExampleApp() {
   const shouldImportSeedData = await isFirstRun();
 
+  if (shouldImportSeedData) {
+    try {
+      console.log('Setting up the template...');
       await importSeedData();
-
+      console.log('Ready to go');
+    } catch (error) {
+      console.log('Could not import seed data');
+      console.error(error);
+    }
+  } else {
+    console.log(
+      'Seed data has already been imported. We cannot reimport unless you clear your database first.'
+    );
+  }
 }
 
 async function isFirstRun() {
