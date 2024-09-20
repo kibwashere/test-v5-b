@@ -8,7 +8,7 @@
     "deploy": "strapi deploy",
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
-    "start": "seed:example strapi start",
+    "start": "seed:example && strapi start",
     "strapi": "strapi"
   },
   "dependencies": {
