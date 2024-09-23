@@ -255,23 +255,16 @@ async function importSeedData() {
 }
 
 async function main() {
-  console.log('-- 1')
   const { createStrapi, compileStrapi } = require('@strapi/strapi');
 
-  console.log('-- 2')
   const appContext = await compileStrapi();
-  console.log('-- 3')
   const app = await createStrapi(appContext).load();
 
-  console.log('-- 4')
   app.log.level = 'error';
 
-  console.log('-- 5')
   await seedExampleApp();
-  console.log('-- 6')
   await app.destroy();
 
-  console.log('-- 7')
   process.exit(0);
 }
 
